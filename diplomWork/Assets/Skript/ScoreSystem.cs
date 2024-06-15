@@ -11,7 +11,7 @@ public class ScoreSystem : MonoBehaviour
     {
         if (!stay && GameManager.gameOn)
         {
-            transform.Translate(Vector3.forward * 0.02f);
+            transform.Translate(Vector3.forward * 0.015f);
         }
     }
     private void OnTriggerEnter(Collider other)

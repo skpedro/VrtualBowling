@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // ключ по которому ищется значение  
+    // ключ по которому сохраняется  значение  
     private int key;
     public static int point;
     public static bool gameOn;
-    [SerializeField] TextMeshProUGUI textpoint;
-    public List<TextMeshProUGUI> textpointsAttempt = new List<TextMeshProUGUI>();
+    [SerializeField] TextMeshProUGUI textPoint;
+    public List<TextMeshProUGUI> textPointsAttempt = new List<TextMeshProUGUI>();
 
     private void Start()
     {
@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 8; i++)
         {
-            textpointsAttempt[i].text = textpointsAttempt[i].text + PlayerPrefs.GetInt($"point{i}");
+            textPointsAttempt[i].text = textPointsAttempt[i].text + PlayerPrefs.GetInt($"point{i}");
         }
 
     }
     public void Update()
     {       
-        textpoint.text= "point:" + point.ToString();       
+        textPoint.text= "point:" + point.ToString();       
     }
 
     public  void Restart()
