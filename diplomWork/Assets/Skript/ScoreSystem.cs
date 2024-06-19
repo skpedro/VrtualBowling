@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class ScoreSystem : MonoBehaviour
 {
-    int count = 10;
-    bool stay;
-
+    private int count = 10;
+    Vector3 position = new Vector3(0.5f, 0.462f, -3.668f);
     private void Update()
     {
-        if (!stay && GameManager.gameOn)
+        if (GameManager.gameOn)
         {
-            transform.Translate(Vector3.forward * 0.015f);
+            transform.Translate(Vector3.forward * 0.04f);
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -24,8 +23,9 @@ public class ScoreSystem : MonoBehaviour
         if (other.gameObject.tag == "wall")
         {
             GameManager.gameOn = false;
-            stay = true;
             GameManager.point = count;
+            gameObject.transform.position = position;
+            count = 10;
         }
     } 
 }
